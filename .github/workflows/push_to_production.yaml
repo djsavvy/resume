@@ -16,6 +16,18 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: Clean up existing server html directory
+      uses: appleboy/ssh-action@master
+      with: 
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+        script: |
+          touch /var/www/savvy.bio/html/tmp_canary
+          rm -rf /var/www/savvy.bio/html/*
+
+
     - name: SCP docs/ to server
       uses: appleboy/scp-action@master
       env:
@@ -28,6 +40,7 @@ jobs:
         strip_components: 1
         target: "/var/www/savvy.bio/html/"
         overwrite: true
+
 
     - name: Server confirmation
       uses: appleboy/ssh-action@master
