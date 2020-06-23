@@ -2,7 +2,9 @@ Usage
 ---------
 The `master` branch is live at https://savvy.bio
 
-On a fresh clone, don't forget to symlink `.github/git_hooks/pre-commit.sh` to `.git/hooks/pre-commit` and mark it as executable. This will make sure that `docs/build.css` will be built on every commit.
+On a fresh clone, don't forget to symlink `.github/git_hooks/pre-commit.sh` to `.git/hooks/pre-commit` and mark it as executable. Also, do the same for the post-hook commit.
+
+This will make sure that `docs/build.css` will be built on every commit.
 
 #### Attribution
 Originally forked from https://github.com/WebPraktikos/universal-resume
