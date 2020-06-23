@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Usage: 
-#   ln -s git_hooks/pre-commit.sh .git/hooks/pre-commit
 #   chmod u+x git_hooks/pre-commit.sh
+#   cd .git/hooks
+#   ln -s ../../git_hooks/pre-commit.sh ./pre-commit
 
 
 # Stash unsaved changes before running script body 
