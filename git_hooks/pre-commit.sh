@@ -26,6 +26,9 @@ echo "Attemping to restore stashed unsaved changes..."
 STASHES=$(git stash list)
 if [[ $STASHES == "$STASH_NAME" ]]; then
     git stash pop -q $STASH_NAME
+    echo "Popped stash ${STASH_NAME}"
+else
+    echo "Failed to pop stash ${STASH_NAME}"
 fi
 
 echo "----------- Finished pre-commit hook -----------"
