@@ -14,7 +14,6 @@ echo "Stashing unsaved changes in ${STASH_NAME}"
 git stash push -q --keep-index -m $STASH_NAME
 
 # Actually build
-echo ""
 echo "Building: "
 npm run build
 
@@ -22,13 +21,7 @@ echo ""
 echo "Done building."
 
 # Restore unsaved changes
-echo "Attemping to restore stashed unsaved changes..."
-STASHES=$(git stash list)
-if [[ $STASHES == "$STASH_NAME" ]]; then
-    git stash pop -q $STASH_NAME
-    echo "Popped stash ${STASH_NAME}"
-else
-    echo "Failed to pop stash ${STASH_NAME}"
-fi
+echo "Attemping to restore stashed unsaved changes: popping stash ${STASH_NAME}..."
+git stash pop $STASH_NAME
 
 echo "----------- Finished pre-commit hook -----------"
