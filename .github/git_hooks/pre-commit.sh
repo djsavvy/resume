@@ -8,17 +8,18 @@
 
 # Stash unsaved changes before running script body 
 # (derived from: https://codeinthehole.com/tips/tips-for-using-a-git-pre-commit-hook/)
-STASH_NAME="pre-commit-$(date +%s)"
 echo "----------- Running pre-commit hook -----------"
+STASH_NAME="pre-commit-$(date +%s)"
+git add docs/build.css --force
 echo "Stashing unsaved changes in ${STASH_NAME}:"
 git stash push --keep-index --include-untracked -m $STASH_NAME
 
 # Actually build
 echo "Building: "
 npm run build
-
 echo ""
 echo "Done building."
+git add docs/build.css --force
 
 # Restore unsaved changes
 echo "Attemping to restore stashed unsaved changes: popping stash ${STASH_NAME}..."
