@@ -21,13 +21,10 @@ echo ""
 echo "Done building."
 
 # Restore unsaved changes
-echo "Attemping to restore shashed unsaved changes..."
+echo "Attemping to restore stashed unsaved changes..."
 STASHES=$(git stash list)
 if [[ $STASHES == "$STASH_NAME" ]]; then
     git stash pop -q
-    echo "Successful!"
-else
-    echo "Failed."
 fi
 
 echo "----------- Finished pre-commit hook -----------"
