@@ -38,4 +38,4 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
         script: |
           echo "Action push-to-production completed. List of files in /var/www/savvy.bio/html/:"
-          fd /var/www/savvy.bio/html
+          fd . '/var/www/savvy.bio/html'
