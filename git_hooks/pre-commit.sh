@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# Usage: ln -s git_hooks/pre-commit.sh .git/hooks/pre-commit
+# Usage: 
+#   ln -s git_hooks/pre-commit.sh .git/hooks/pre-commit
+#   chmod u+x git_hooks/pre-commit.sh
+
 
 # Stash unsaved changes before running script body 
 # (derived from: https://codeinthehole.com/tips/tips-for-using-a-git-pre-commit-hook/)
