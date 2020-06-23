@@ -11,7 +11,7 @@
 STASH_NAME="pre-commit-$(date +%s)"
 echo "----------- Running pre-commit hook -----------"
 echo "Stashing unsaved changes in ${STASH_NAME}:"
-git stash push --keep-index -m $STASH_NAME
+git stash push --keep-index --include-untracked -m $STASH_NAME
 
 # Actually build
 echo "Building: "
