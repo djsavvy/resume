@@ -24,7 +24,7 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
         script: |
-          touch /var/www/savvy.bio/html/tmp_canary
+          touch /var/www/savvy.bio/html/tmp_canary # To make sure the next line succeeds
           rm -rf /var/www/savvy.bio/html/*
 
 
