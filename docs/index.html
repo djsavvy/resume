@@ -66,23 +66,33 @@
           <div class="break-inside-avoid">
 
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
-              ABOUT ME
+              RESEARCH PROJECTS
             </h2>
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
                 <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  User Interface Designer
+                  Alto: Lightweight VMs using Virtualization-aware Managed Runtimes
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  Since 2010
+                  Since May 2019 | Profs. Eddie Kohler and Minlan Yu, Harvard University | C/C++, Lua, Shell
                 </p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Minimal and formal résumé website template for print, mo&shy;bile, and desktop. The proportions are
-                the same on the screen and paper. Built with amazing <a
-                  class="rounded-lg hover:bg-gray-150 transition ease-in duration-100"
-                  href="https://tailwindcss.com/">Tailwind CSS&nbsp;°</a>.
+                Integrated the
+                  <a href="https://github.com/tass-belgium/picotcp" target="_blank" rel="noopener noreferrer" class="rounded-lg hover:bg-gray-150 transition ease-in duration-100">PicoTCP user-level networking stack</a>
+                  into the Alto runtime, minimizing kernel state and allowing fast snapshot and restore of VMs.
+              </p>
+              <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                Implemented seccomp system call filters to isolate client code. Significantly reduced the set of enabled system calls, exposing a tiny attack surface compared to existing solutions like Docker.
+              </p>
+              <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                Redesigned the Alto hypervisor so client code would no longer run with root privileges.
+              </p>
+              <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                Implemented a proof-of-concept chat server
+                  &bull; Added limited event-driven capabilities to Alto's networking stack
+                  &bull; Benchmarked various network-stack implementations.
               </p>
             </section>
 
@@ -91,19 +101,17 @@
           <section class="mb-4.5 break-inside-avoid">
             <header>
               <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                Front-End Developer
+                Title
               </h3>
               <p class="leading-normal text-md text-gray-650">
                 Since 2013
               </p>
             </header>
             <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              “docs/index.html” is the main content file. By copying HTML: add pages, sec&shy;tions, subsection, and
-              other parts.
+              p1
             </p>
             <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              Too much content on one page
-              will break the page in the form of additional columns.
+              p2
             </p>
           </section>
 
@@ -195,11 +203,16 @@
                   Harvard University
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  May 2021 | B.S., Computer Science and Mathematics
+                  Until May 2021 | B.S., Computer Science and Mathematics
                 </p>
                 <p class="mt-2.1 text-md text-gray-700 leading-normal">
                   <span class="font-medium text-gray-600 print:text-black">Relevant Coursework:</span>
-                  Operating Systems &bull; Systems Security &bull; Advanced Computer Networking
+                  Operating Systems
+                  &bull; Systems Security
+                  &bull; Advanced Computer Networking
+                  &bull; Compilers
+                  &bull; Data Structures and Algorithms
+                  &bull; Systems Programming and Machine Organization
                 </p>
               </header>
             </section>
@@ -231,8 +244,7 @@
                 </p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Good design is as little design as possible. Less, but better — because it concentrates on the essential
-                aspects, and the pro&shy;ducts are not burdened with non-essentials.
+                blank
               </p>
             </section>
 
@@ -252,8 +264,7 @@
               </p>
             </header>
             <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              Good design is long-lasting. It avoids being fashionable and therefore never appears antiquated.<br>
-              Good design is honest. It does not make a product more innovative, powerful or valuable than it really is.
+              blank
             </p>
           </section>
 
@@ -267,8 +278,7 @@
               </p>
             </header>
             <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              Good design is innovative. Technological development is always offering new opportunities for innovative
-              design.
+              blank
             </p>
           </section>
 
@@ -282,8 +292,7 @@
               </p>
             </header>
             <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              Strip steak tail capicola alcatra ground round tenderloin ar. Venison tri-tip porchetta, brisket
-              tenderloin pig beef.
+              blank
             </p>
           </section>
 
@@ -308,8 +317,7 @@
                 </p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Good parts: pure function, higher-order functions, factory functions, composition. Bad parts:
-                inheritance, this, new.
+                blank
               </p>
               <div class="my-3.2 last:pb-1.5">
                 <ul class="flex flex-wrap text-md leading-relaxed -mr-1.6 -mb-1.6">
