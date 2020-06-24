@@ -16,50 +16,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Create TMPDIR variable
+    - name: Build site
       run: |
-        echo "::set-env name=TMPDIR::/tmp/savvy.bio.deploy/$(date +%s-%N)/"
-        echo $TMPDIR
-
-    - name: Create temporary directory to build site
-      uses: appleboy/scp-action@master
-      with: 
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        envs: "$TMPDIR"
-        script: |
-          echo "Making directory $TMPDIR"
-          # mkdir -p "$TMPDIR"
-          # cd $TMPDIR && pwd
-
-
-    - name: SCP repo to server
-      uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-      with: 
-        source: "/"
-        strip_components: 
-        target: $TMPDIR
-        overwrite: true
-
-    - name: Build site on server
-      uses: appleboy/scp-action@master
-      with: 
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        envs: $TMPDIR
-        script_stop: true
-        script: |
-          cd $TMPDIR
-          npm run build
+        cd $GITHUB_WORKSPACE
+        npm install
+        npm run build
 
 
     - name: Clean up existing server html directory
@@ -74,16 +35,18 @@ jobs:
           rm -rf /var/www/savvy.bio/html/*
 
 
-    - name: Move docs on server to html directory
+    - name: SCP docs/ to server
       uses: appleboy/scp-action@master
-      with: 
+      env: 
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        envs: $TMPDIR
-        script: |
-          cp -r $TMPDIR/docs/* /var/www/savvy.bio/html/
+      with:
+        source: "docs/"
+        strip_components: 1
+        target: "/var/www/savvy.bio/html"
+        overwrite: true
 
 
     - name: Server confirmation
@@ -96,14 +59,3 @@ jobs:
         script: |
           echo "Deployment completed. List of files in /var/www/savvy.bio/html/:"
           fd . '/var/www/savvy.bio/html'
-
-    - name: Cleanup
-      uses: appleboy/scp-action@master
-      with: 
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        envs: $TMPDIR
-        script: |
-          rm -rf $TMPDIR
