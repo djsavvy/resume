@@ -35,6 +35,7 @@
 <!-- TODO: add external link hover-style (i.e. light blue background highlight) to titles/links to projects -->
 <!-- TODO: properly accent resume everywhere -->
 <!-- TODO: optimize based on google perf console -->
+<!-- TODO: cache fontawesome fonts -->
 
 <body>
   <main class="font-firago hyphens-manual">
@@ -72,48 +73,87 @@
             <section class="mb-4.5 break-inside-avoid">
               <header>
                 <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  Alto: Lightweight VMs using Virtualization-aware Managed Runtimes
+                  <a href="https://mickens.seas.harvard.edu/files/mickens/files/ime-hotcloud2020.pdf" target="_blank"
+                    rel="noopener noreferrer"
+                    class="rounded-lg group hover:bg-gray-150 transition ease-in duration-100">
+                    Rethinking Isolation Mechanisms for Datacenter Multitenancy
+                    <span
+                      class="inline-block font-normal text-gray-550 print:text-black group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+                  </a>
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  Since May 2019 | Profs. Eddie Kohler and Minlan Yu, Harvard University | C/C++, Lua, Shell
+                  Since May 2020 | C++ <br>
+                  Prof. James Mickens, Harvard University
                 </p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                Currently implementing type safety checks that run on separate hardware from client code. Similar to
+                Intel SGX Secure Enclaves, but providing dynamic integrity checking and exposing far fewer side
+                channels.
+              </p>
+            </section>
+
+            <section class="mb-4.5 break-inside-avoid">
+              <header>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
+                  <a href="https://mickens.seas.harvard.edu/files/mickens/files/alto.pdf" target="_blank"
+                    rel="noopener noreferrer"
+                    class="rounded-lg group hover:bg-gray-150 transition ease-in duration-100">
+                    Alto: Lightweight VMs using Virtualization-aware Managed Runtimes
+                    <span
+                      class="inline-block font-normal text-gray-550 print:text-black group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+                  </a>
+                </h3>
+                <p class="leading-normal text-md text-gray-650">
+                  Since May 2019 | C/C++, Lua, Shell <br>
+                  Profs. Eddie Kohler and Minlan Yu, Harvard University
+                </p>
+              </header>
+              <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
                 Integrated the
-                  <a href="https://github.com/tass-belgium/picotcp" target="_blank" rel="noopener noreferrer" class="rounded-lg hover:bg-gray-150 transition ease-in duration-100">PicoTCP user-level networking stack</a>
-                  into the Alto runtime, minimizing kernel state and allowing fast snapshot and restore of VMs.
+                <a href="https://github.com/tass-belgium/picotcp" target="_blank" rel="noopener noreferrer"
+                  class="underline rounded-lg hover:bg-gray-150 transition ease-in duration-100">PicoTCP</a>
+                user-level networking stack into the Alto runtime, minimizing kernel state and enabling fast snapshot
+                and restore of VMs. Also added limited networking event-driven capabilities to Alto.
               </p>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Implemented seccomp system call filters to isolate client code. Significantly reduced the set of enabled system calls, exposing a tiny attack surface compared to existing solutions like Docker.
+                <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
+                Implemented seccomp system call filters to isolate client code. Significantly reduced the set of
+                required system calls, exposing a tiny attack surface compared to existing solutions like Docker.
               </p>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
                 Redesigned the Alto hypervisor so client code would no longer run with root privileges.
               </p>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
                 Implemented a proof-of-concept chat server
-                  &bull; Added limited event-driven capabilities to Alto's networking stack
-                  &bull; Benchmarked various network-stack implementations.
+              </p>
+              <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
+                Benchmarked various network-stack implementations.
+              </p>
+            </section>
+
+            <section class="mb-4.5 break-inside-avoid">
+              <header>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
+                  FontBlocker Browser Extension
+                  <!-- TODO: link to browser extension after adding FF support, adding paper/README to github -->
+                </h3>
+                <p class="leading-normal text-md text-gray-650">
+                  Oct 2019 – Feb 2020 | Javascript <br>
+                  Prof. James Mickens, Harvard University
+                </p>
+              </header>
+              <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                Closed a font-based fingerprinting side channel in Google Chrome, improving both the blocking
+                performance and end-user experience compared to previous font-based fingerprinting blockers.
               </p>
             </section>
 
           </div>
-
-          <section class="mb-4.5 break-inside-avoid">
-            <header>
-              <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                Title
-              </h3>
-              <p class="leading-normal text-md text-gray-650">
-                Since 2013
-              </p>
-            </header>
-            <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              p1
-            </p>
-            <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              p2
-            </p>
-          </section>
 
         </section>
 
@@ -125,17 +165,6 @@
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
               EXPERIENCE
             </h2>
-
-            <section class="mb-4.5 break-inside-avoid">
-              <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  WebPraktikos Inc.
-                </h3>
-                <p class="leading-normal text-md text-gray-650">
-                  Jun 2018 – Present | Web Developer
-                </p>
-              </header>
-            </section>
 
           </div>
 
@@ -152,39 +181,26 @@
 
               <li class="mt-2.1 text-md text-gray-700 leading-normal">
                 <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
-                Cooked shrimps for 2 to 3 minutes per side, or until opaque; then, transfered to a serving dish with
-                limon
+                bullet 1
               </li>
               <li class="mt-2.1 text-md text-gray-700 leading-normal">
                 <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
-                Roasted a pig, turning frequently, until meat reached 160°F in the thickest part of the shoulder or
-                thigh
+                bullet 2
               </li>
             </ul>
           </section>
 
-          <section class="mb-4.5 break-inside-avoid">
-            <header>
-              <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                Exquisite Systems d.o.o.
-              </h3>
-              <p class="leading-normal text-md text-gray-650">
-                May 2015 – Dec 2016 | Software QA Specialist
-              </p>
-            </header>
-            <ul class="">
-              <li class="mt-2.1 text-md text-gray-700 leading-normal">
-                <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
-                Made stockfish, which is unsalted fish, usully cod, dried by cold air and wind on wooden racks on the
-                foreshore
-              </li>
-              <li class="mt-2.1 text-md text-gray-700 leading-normal">
-                <span class="absolute -ml-3 sm:-ml-3.2 select-none transform -translate-y-px">›</span>
-                Preserved meat without salt by removing fat, cutting it into very thin strips and drying it in the sun
-                or by a fire.
-              </li>
-            </ul>
-          </section>
+        </section>
+
+        <section class="mt-8 first:mt-0">
+
+          <!-- To keep in the same column -->
+          <div class="break-inside-avoid">
+
+            <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
+              PROJECTS
+            </h2>
+
 
         </section>
 
@@ -218,83 +234,6 @@
             </section>
 
           </div>
-
-        </section>
-
-        <section class="mt-8 first:mt-0">
-
-          <!-- To keep in the same column -->
-          <div class="break-inside-avoid">
-
-            <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
-              PROJECTS
-            </h2>
-
-            <section class="mb-4.5 break-inside-avoid">
-              <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  <a href="https://github.com/WebPraktikos/universal-resume" class="group">
-                    Universal Resume
-                    <span
-                      class="inline-block font-normal text-gray-550 print:text-black group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
-                  </a>
-                </h3>
-                <p class="leading-normal text-md text-gray-650">
-                  Since 2019 | HTML CSS
-                </p>
-              </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                blank
-              </p>
-            </section>
-
-          </div>
-
-          <section class="mb-4.5 break-inside-avoid">
-            <header>
-              <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                <a href="https://github.com/WebPraktikos/tailwindcss-rich-docs" class="group">
-                  tailwindcss-rich-docs
-                  <span
-                    class="inline-block font-normal text-gray-550 print:text-black group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
-                </a>
-              </h3>
-              <p class="leading-normal text-md text-gray-650">
-                2017 | JavaScript
-              </p>
-            </header>
-            <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              blank
-            </p>
-          </section>
-
-          <section class="mb-4.5 break-inside-avoid">
-            <header>
-              <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                Third One
-              </h3>
-              <p class="leading-normal text-md text-gray-650">
-                2013 – 2014 | Vue
-              </p>
-            </header>
-            <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              blank
-            </p>
-          </section>
-
-          <section class="mb-4.5 break-inside-avoid">
-            <header>
-              <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                Fantastic Project
-              </h3>
-              <p class="leading-normal text-md text-gray-650">
-                2012 | JavaScript
-              </p>
-            </header>
-            <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              blank
-            </p>
-          </section>
 
         </section>
 
